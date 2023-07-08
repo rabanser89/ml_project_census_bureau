@@ -1,7 +1,7 @@
 # Script to train machine learning model.
 from sklearn.model_selection import train_test_split
-from starter.ml.data import process_data
-from starter.ml.model import train_model, compute_performence_on_data_slices
+from ml.data import process_data
+from ml.model import train_model, compute_performence_on_data_slices
 # Add the necessary imports for the starter code.
 import pandas as pd
 import joblib
@@ -34,6 +34,7 @@ filename = '../model/model.sav'
 joblib.dump(model, filename)
 
 joblib.dump(encoder, '../model/encoder.joblib')
+joblib.dump(lb, '../model/lb.joblib')
 
 
 #compute model metrics on slices of the data
