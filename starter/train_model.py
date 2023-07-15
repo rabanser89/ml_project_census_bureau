@@ -1,7 +1,7 @@
 # Script to train machine learning model.
 from sklearn.model_selection import train_test_split
 from ml.data import process_data
-from ml.model import train_model, compute_performence_on_data_slices
+from ml.model import train_model, compute_performence_on_data_slices, compute_model_metrics
 # Add the necessary imports for the starter code.
 import pandas as pd
 import joblib
@@ -33,6 +33,8 @@ filename = '../model/model.sav'
 joblib.dump(model, filename)
 
 
+
+
 joblib.dump(encoder, '../model/encoder.joblib')
 joblib.dump(lb, '../model/lb.joblib')
 
@@ -58,6 +60,10 @@ print('test : ', test)
 print('==================================================')
 print('>', test.iloc[ind[0],:])
 print('==================================================')
+
+precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
+
+print('precision, recall, fbeta', precision, recall, fbeta)
 ##############################################################################################################
 
 #compute model metrics on slices of the data

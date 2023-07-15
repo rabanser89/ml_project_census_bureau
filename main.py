@@ -14,6 +14,8 @@ model = joblib.load('model/model.sav')
 data0 = pd.read_csv('data/census.csv')
 cols = list(data0.columns)
 
+print(data0.shape)
+
 cat_features = [
     "workclass",
     "education",
