@@ -33,8 +33,6 @@ filename = '../model/model.sav'
 joblib.dump(model, filename)
 
 
-
-
 joblib.dump(encoder, '../model/encoder.joblib')
 joblib.dump(lb, '../model/lb.joblib')
 
@@ -43,23 +41,6 @@ X_test, y_test, _, _ = process_data(
     test, categorical_features=cat_features, label="salary", training=False, encoder= encoder, lb=lb
 )
 y_pred = model.predict(X_test)
-print('==================================================')
-print('y_pred', y_pred)
-print('sum', sum(list(y_pred)))
-print('len', len(list(y_pred)))
-t=list(y_pred + y_test)
-ind = [k for k, el in enumerate(t) if el ==2]
-print('ind[0]',ind[0])
-print('y_pred',y_pred[ind[0]])
-print('y_test',y_test[ind[0]])
-
-print('==================================================')
-print('y_test', y_test)
-print('==================================================')
-print('test : ', test)
-print('==================================================')
-print('>', test.iloc[ind[0],:])
-print('==================================================')
 
 precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
 
