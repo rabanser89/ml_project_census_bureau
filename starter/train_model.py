@@ -6,7 +6,7 @@ from ml.model import train_model, compute_performence_on_data_slices, compute_mo
 import pandas as pd
 import joblib
 # Add code to load in the data.
-data = pd.read_csv('../data/census.csv')
+data = pd.read_csv('data/census.csv')
 
 # Split training and test data
 train, test = train_test_split(data, test_size=0.20)
@@ -29,12 +29,12 @@ X_train, y_train, encoder, lb = process_data(
 
 # Train and save a model.
 model = train_model(X_train, y_train)
-filename = '../model/model.sav'
+filename = 'model/model.sav'
 joblib.dump(model, filename)
 
 
-joblib.dump(encoder, '../model/encoder.joblib')
-joblib.dump(lb, '../model/lb.joblib')
+joblib.dump(encoder, 'model/encoder.joblib')
+joblib.dump(lb, 'model/lb.joblib')
 
 ###########################################################################################################
 X_test, y_test, _, _ = process_data(

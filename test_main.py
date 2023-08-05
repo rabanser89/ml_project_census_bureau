@@ -36,7 +36,7 @@ def test_low_income():
     assert r.status_code == 200
     assert r.json() == {'pred': " <=50K"}
 
-def test_high_income():
+def test_high_income():https://github.com/rabanser89/ml_project_census_bureau.git
     r = client.post(
         "/inference/",
         headers={"X-Token": "coneofsilence"},
