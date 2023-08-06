@@ -14,7 +14,8 @@ def test_say_hello():
 
 def test_low_income():
     r = client.post(
-        "/inference/",
+        "/inference",
+        headers={"accept": "application/json", "Content-Type": "application/json"},
         json={
             "age": 39,
             "workclass": "Private",
@@ -32,12 +33,14 @@ def test_low_income():
             "native_country": "United-States"
         },
     )
+
     assert r.status_code == 200
     assert r.json() == {'pred': " <=50K"}
 
 def test_high_income():
     r = client.post(
-        "/inference/",
+        "/inference",
+        headers={"accept": "application/json", "Content-Type": "application/json"},
         json={
             "age": 71,
             "workclass": " ?",
@@ -53,8 +56,8 @@ def test_high_income():
             "capital_loss": 0,
             "hours_per_week": 10,
             "native_country": " United-States" 
-
         },
     )
+
     assert r.status_code == 200
     assert r.json() == {'pred': ' >50K'}
