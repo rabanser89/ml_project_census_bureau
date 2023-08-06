@@ -13,7 +13,6 @@ model = joblib.load('model/model.sav')
 data0 = pd.read_csv('data/census.csv')
 cols = list(data0.columns)
 
-print(data0.shape)
 
 cat_features = [
     "workclass",
@@ -25,6 +24,7 @@ cat_features = [
     "sex",
     "native-country",
 ]
+
 
 class ModelInput(BaseModel):
     age: int
@@ -41,20 +41,21 @@ class ModelInput(BaseModel):
     capital_loss: int
     hours_per_week: int
     native_country: str
-   
+
 
 app = FastAPI()
+
 
 @app.get("/")
 async def say_hello():
     return {"greeting": "Hello World"}
 
+
 @app.post("/inference")
 async def model_inference(data: ModelInput):
-
     
-    df = pd.DataFrame.from_dict({0:list(dict(data).values())}, orient='index',
-                       columns=cols[:-1])
+    df = pd.DataFrame.from_dict({0: list(dict(data).values())}, orient='index',
+                                columns=cols[:-1])
 
     X, _, _, _ = process_data(
         df, categorical_features=cat_features, label=None, training=False, encoder=encoder, lb=None

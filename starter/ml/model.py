@@ -27,7 +27,8 @@ def train_model(X_train, y_train):
 
 def compute_model_metrics(y, preds):
     """
-    Validates the trained machine learning model using precision, recall, and F1.
+    Validates the trained machine learning model
+    using precision, recall, and F1.
 
     Inputs
     ------
@@ -47,9 +48,9 @@ def compute_model_metrics(y, preds):
     return precision, recall, fbeta
 
 
-
 def inference(model, X):
-    """ Run model inferences and return the predictions.
+    """
+    Run model inferences and return the predictions.
 
     Inputs
     ------
@@ -73,7 +74,7 @@ logging.basicConfig(
     format='%(message)s')
 
 
-def compute_performence_on_data_slices(model, test_data, 
+def compute_performence_on_data_slices(model, test_data,
         slice, cat_features, encoder, lb):
     """
     compute model performance on data slices 
@@ -100,9 +101,10 @@ def compute_performence_on_data_slices(model, test_data,
     for cat in df.columns:
         values = list(set(df[cat]))
         for val in values:
-            data_slice = test_data[test_data[cat]==val]
+            data_slice = test_data[test_data[cat] == val]
             X, y, _, _ = process_data(
-                    data_slice, categorical_features=cat_features, label="salary", training=False, encoder=encoder, lb=lb
+                    data_slice, categorical_features=cat_features,
+                    label="salary", training=False, encoder=encoder, lb=lb
                 )
             preds = inference(model, X)
             precision, recall, fbeta = compute_model_metrics(y, preds)

@@ -37,7 +37,7 @@ joblib.dump(lb, '../model/lb.joblib')
 
 X_test, y_test, _, _ = process_data(
         test, categorical_features=cat_features,
-        label="salary", training=False, encoder= encoder, lb=lb
+        label="salary", training=False, encoder=encoder, lb=lb
 )
 
 y_pred = model.predict(X_test)
@@ -47,5 +47,6 @@ precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
 print('precision, recall, fbeta', precision, recall, fbeta)
 
 # Compute model metrics on slices of the data
-slice = ['education'] #slices where performence is computed 
-compute_performence_on_data_slices(model, test, slice, cat_features, encoder, lb)
+slice = ['education']
+compute_performence_on_data_slices(model, test, slice,
+                cat_features, encoder, lb)

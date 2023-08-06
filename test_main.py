@@ -5,17 +5,20 @@ from main import app
 client = TestClient(app)
 
 
-
 def test_say_hello():
     r = client.get("/")
 
     assert r.status_code == 200
     assert r.json() == {"greeting": "Hello World"}
 
+
 def test_low_income():
     r = client.post(
         "/inference",
-        headers={"accept": "application/json", "Content-Type": "application/json"},
+        headers={
+            "accept": "application/json",
+            "Content-Type": "application/json"
+        },
         json={
             "age": 39,
             "workclass": "Private",
@@ -40,14 +43,17 @@ def test_low_income():
 def test_high_income():
     r = client.post(
         "/inference",
-        headers={"accept": "application/json", "Content-Type": "application/json"},
+        headers={
+            "accept": "application/json",
+            "Content-Type": "application/json"
+        },
         json={
             "age": 71,
             "workclass": " ?",
             "fnlgt": 287372,
             "education": " Doctorate",
             "education_num": 16,
-            "marital_status": " Married-civ-spouse", 
+            "marital_status": " Married-civ-spouse",
             "occupation": " ?",
             "relationship": " Husband",
             "race": " White",
@@ -55,7 +61,7 @@ def test_high_income():
             "capital_gain": 0,
             "capital_loss": 0,
             "hours_per_week": 10,
-            "native_country": " United-States" 
+            "native_country": " United-States"
         },
     )
 
