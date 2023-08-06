@@ -15,7 +15,6 @@ def test_say_hello():
 def test_low_income():
     r = client.post(
         "/inference/",
-        headers={"X-Token": "coneofsilence"},
         json={
             "age": 39,
             "workclass": "Private",
@@ -39,7 +38,6 @@ def test_low_income():
 def test_high_income():
     r = client.post(
         "/inference/",
-        headers={"X-Token": "coneofsilence"},
         json={
             "age": 71,
             "workclass": " ?",
