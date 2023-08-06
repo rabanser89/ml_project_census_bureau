@@ -23,5 +23,5 @@ Metrics in use are precision, recall, fbeta. On the test data model performance 
 - recall = 0.631
 - fbeta = 0.683
 
-An example of model performence on data slices can be found in slice_output.txt. In this case the education feature is used
+An example of model performence on data slices can be found in starter/slice_output.txt. In this case the education feature is used
 
