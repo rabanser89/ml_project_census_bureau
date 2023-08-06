@@ -2,7 +2,8 @@ from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.ensemble import RandomForestClassifier
 import logging
 from starter.ml.data import process_data
-# Optional: implement hyperparameter tuning.
+
+
 def train_model(X_train, y_train):
     """
     Trains a random forest classifier and returns it.
@@ -64,13 +65,16 @@ def inference(model, X):
     preds = model.predict(X)
     return preds
 
+
 logging.basicConfig(
     filename='slice_output.txt',
     level=logging.INFO,
     filemode='w',
     format='%(message)s')
 
-def compute_performence_on_data_slices(model, test_data, slice, cat_features, encoder, lb):
+
+def compute_performence_on_data_slices(model, test_data, 
+        slice, cat_features, encoder, lb):
     """
     compute model performance on data slices 
     Inputs
@@ -103,6 +107,3 @@ def compute_performence_on_data_slices(model, test_data, slice, cat_features, en
             preds = inference(model, X)
             precision, recall, fbeta = compute_model_metrics(y, preds)
             logging.info(f"Model performance for {cat} with value {val}: precision = {precision}, recall = {recall}, fbeta = {fbeta}")
-            
-            
-    

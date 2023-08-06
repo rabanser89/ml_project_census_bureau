@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 import numpy as np
 
+
 @pytest.fixture(scope="session")
 def data():
 
@@ -27,8 +28,10 @@ def data():
     ]
 
     X_test, y_test, _, _ = process_data(
-    test, categorical_features=cat_features, label="salary", training=False, encoder= encoder, lb=lb
+                test, categorical_features=cat_features,
+                label="salary", training=False, encoder= encoder, lb=lb
     )
+
     y_pred = model.predict(X_test)
 
     return model, train, X_test, y_test, y_pred, cat_features
@@ -44,6 +47,7 @@ def test_compute_model_metrics(data):
     assert isinstance(recall, (np.float64, float))
     assert isinstance(fbeta, (np.float64, float))
 
+
 def test_inference(data):
 
     model, train, X_test, y_test, y_pred, cat_features= data
@@ -52,14 +56,15 @@ def test_inference(data):
 
     assert len(preds) > 0
 
+
 def test_process_data(data):
 
     model, train, X_test, y_test, y_pred, cat_features = data
 
     X_train, y_train, _, _ = process_data(
-    train, categorical_features=cat_features, label="salary", training=True
+            train, categorical_features=cat_features,
+            label="salary", training=True
     )
 
     assert len(X_train) > 0
     assert len(y_train) > 0
-
