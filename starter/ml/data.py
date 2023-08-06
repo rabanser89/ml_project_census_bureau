@@ -9,7 +9,7 @@ def process_data(
     """ Process the data used in the machine learning pipeline.
 
     Processes the data using one hot encoding for the categorical features
-    and a label binarizer for the labels. This can be used in either training 
+    and a label binarizer for the labels. This can be used in either training
     or inference/validation.
 
     Note: depending on the type of model used, you may want to add
@@ -40,7 +40,7 @@ def process_data(
     y : np.array
         Processed labels if labeled=True, otherwise empty np.array.
     encoder : sklearn.preprocessing._encoders.OneHotEncoder
-        Trained OneHotEncoder if training is True, otherwise returns the 
+        Trained OneHotEncoder if training is True, otherwise returns the
         encoder passed
         in.
     lb : sklearn.preprocessing._label.LabelBinarizer

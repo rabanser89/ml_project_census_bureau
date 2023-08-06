@@ -48,5 +48,6 @@ print('precision, recall, fbeta', precision, recall, fbeta)
 
 # Compute model metrics on slices of the data
 slice = ['education']
-compute_performence_on_data_slices(model, test, slice,
-                cat_features, encoder, lb)
+compute_performence_on_data_slices(
+    model, test, slice, cat_features, encoder, lb
+)

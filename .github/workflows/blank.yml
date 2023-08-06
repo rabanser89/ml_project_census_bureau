@@ -52,4 +52,4 @@ jobs:
 
       # Run flake8
       - name: Run flake8
-        run: flake8
+        run: flake8 --exclude=sanitycheck.py

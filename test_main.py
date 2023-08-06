@@ -40,6 +40,7 @@ def test_low_income():
     assert r.status_code == 200
     assert r.json() == {'pred': " <=50K"}
 
+
 def test_high_income():
     r = client.post(
         "/inference",

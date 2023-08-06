@@ -23,7 +23,11 @@ print('Test live GET:')
 print(response.status_code)
 print(response.json())
 
-response = requests.post('https://census-bureau.onrender.com/inference', data=json.dumps(data))
+response = requests.post(
+        'https://census-bureau.onrender.com/inference',
+        data=json.dumps(data)
+    )
+
 print('Test live POST:')
 print(response.status_code)
 print(response.json())

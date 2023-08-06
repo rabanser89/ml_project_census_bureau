@@ -53,12 +53,13 @@ async def say_hello():
 
 @app.post("/inference")
 async def model_inference(data: ModelInput):
-    
+
     df = pd.DataFrame.from_dict({0: list(dict(data).values())}, orient='index',
                                 columns=cols[:-1])
 
     X, _, _, _ = process_data(
-        df, categorical_features=cat_features, label=None, training=False, encoder=encoder, lb=None
+        df, categorical_features=cat_features, label=None,
+        training=False, encoder=encoder, lb=None
     )
     preds = inference(model, X)
     r = lb.inverse_transform(preds)

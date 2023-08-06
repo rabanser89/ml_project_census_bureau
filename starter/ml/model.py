@@ -74,10 +74,11 @@ logging.basicConfig(
     format='%(message)s')
 
 
-def compute_performence_on_data_slices(model, test_data,
+def compute_performence_on_data_slices(
+        model, test_data,
         slice, cat_features, encoder, lb):
     """
-    compute model performance on data slices 
+    compute model performance on data slices
     Inputs
     ------
     model : ???
@@ -108,4 +109,6 @@ def compute_performence_on_data_slices(model, test_data,
                 )
             preds = inference(model, X)
             precision, recall, fbeta = compute_model_metrics(y, preds)
-            logging.info(f"Model performance for {cat} with value {val}: precision = {precision}, recall = {recall}, fbeta = {fbeta}")
+            logging.info(f"Model performance for {cat} with value {val}:"
+                         f"precision = {precision}, recall = {recall},"
+                         f"fbeta = {fbeta}")
