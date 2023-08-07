@@ -42,6 +42,26 @@ class ModelInput(BaseModel):
     hours_per_week: int
     native_country: str
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "age": 39,
+                "workclass": "Private",
+                "fnlgt": 77516,
+                "education": "Masters",
+                "education_num": 14,
+                "marital_status": "Divorced",
+                "occupation": "Prof-specialty",
+                "relationship": "Not-in-family",
+                "race": "White",
+                "sex": "Male",
+                "capital_gain": 0,
+                "capital_loss": 0,
+                "hours_per_week": 40,
+                "native_country": "United-States"
+            }
+        }
+
 
 app = FastAPI()
 
