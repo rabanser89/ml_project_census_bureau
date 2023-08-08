@@ -36,4 +36,4 @@ For this project GitHub action are used. GitHub action run pytest and flake8 on 
 
 The app is deployed to the cloud application platform [www.render.com](https://www.render.com), where continuous delivery is enabled. See the screenshot continuous_deployment.png and continuous_deployment2.png
 
-The live api in action can be found in the screenshot live_get.png and post_get.png
+The live api in action can be found in the screenshots live_get.png and post_get.png
