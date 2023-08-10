@@ -26,7 +26,9 @@ An example of model performence on data slices can be found in starter/slice_out
 
 ## Ethical Considerations
 
-There is no ethical concern to use this code.
+The machine learning model is trained on data with racial a race feature. Due to potential biases, it is crucial to ensure fairness, accountability, and the prevention of discrimination. Keep in mind that the model may unintentionally learn and perpetuate these biases present in the data. To 
+better understand the effect of such biases, one may use the compute_performence_on_data_slices function in the code.
+
 
 ## Caveats and Recommendations
 
